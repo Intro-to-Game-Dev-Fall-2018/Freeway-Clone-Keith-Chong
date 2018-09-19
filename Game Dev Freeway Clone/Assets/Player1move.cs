@@ -16,8 +16,7 @@ public class Player1move : MonoBehaviour {
 	void Start ()
 	{
 		Score = 0;
-		ScoreText.text = Score.ToString();
-
+		ScoreText.text = "Score:" + Score.ToString();
 	}
 	
 	// Update is called once per frame
@@ -51,7 +50,7 @@ public class Player1move : MonoBehaviour {
 			transform.position = new Vector3(5.75f, -4.5f,-3);
 			Move = false;
 			Score += 1;
-			ScoreText.text = Score.ToString();
+			ScoreText.text = "Score:" + Score.ToString();
 			Debug.Log(Score);
 		}
 		
