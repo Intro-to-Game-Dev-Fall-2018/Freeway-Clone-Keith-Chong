@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
+using TMPro;
+using UnityEngine.UI;
 
 public class Player1move : MonoBehaviour {
 
 	public float Speed;
 	public bool Move;
+	public int Score;
+	public TextMeshProUGUI ScoreText;
 	
 	// Use this for initialization
-	void Start () {
-		
-	
+	void Start ()
+	{
+		Score = 0;
+		ScoreText.text = Score.ToString();
+
 	}
 	
 	// Update is called once per frame
@@ -21,14 +27,14 @@ public class Player1move : MonoBehaviour {
 		{
 			transform.position += new Vector3(0, Speed);
 			Move = true;
-			Debug.Log(Move);
+			//Debug.Log(Move);
 		}
 		
 		if (Input.GetKey(KeyCode.DownArrow))
 		{
 			transform.position += new Vector3(0, -Speed);
 			Move = true;
-			Debug.Log(Move);
+			//Debug.Log(Move);
 		}
 		
 		Vector3 pos = transform.position;
@@ -44,13 +50,15 @@ public class Player1move : MonoBehaviour {
 		{
 			transform.position = new Vector3(5.75f, -4.5f,-3);
 			Move = false;
-			Debug.Log(Move);
+			Score += 1;
+			ScoreText.text = Score.ToString();
+			Debug.Log(Score);
 		}
 		
 		if (other.gameObject.CompareTag("Respawn"))
 		{
 			transform.position = new Vector3(5.75f, -4.5f,-3);
-			Debug.Log(Speed);
+			//Debug.Log(Speed);
 		}
 	}
 }
