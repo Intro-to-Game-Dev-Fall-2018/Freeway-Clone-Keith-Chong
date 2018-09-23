@@ -8,6 +8,8 @@ public class Player2move : MonoBehaviour {
 	public float Speed;
 	public int Score;
 	public TextMeshProUGUI ScoreText;
+	public AudioSource Crash;
+	public AudioSource Win;
 	
 	// Use this for initialization
 	void Start () {
@@ -43,11 +45,13 @@ public class Player2move : MonoBehaviour {
 			Debug.Log(Speed);
 			Score += 1;
 			ScoreText.text = "Score:" + Score.ToString();
+			Win.Play ();
 		}
 		
 		if (other.gameObject.CompareTag("Respawn"))
 		{
 			transform.position = new Vector3(-5.75f, -4.5f,-3);
+			Crash.Play ();
 			Debug.Log(Speed);
 		}
 	}

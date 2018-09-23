@@ -11,6 +11,8 @@ public class Player1move : MonoBehaviour {
 	public bool Move;
 	public int Score;
 	public TextMeshProUGUI ScoreText;
+	public AudioSource Crash;
+	public AudioSource Win;
 	
 	// Use this for initialization
 	void Start ()
@@ -52,11 +54,13 @@ public class Player1move : MonoBehaviour {
 			Score += 1;
 			ScoreText.text = "Score:" + Score.ToString();
 			Debug.Log(Score);
+			Win.Play ();
 		}
 		
 		if (other.gameObject.CompareTag("Respawn"))
 		{
 			transform.position = new Vector3(5.75f, -4.5f,-3);
+			Crash.Play ();
 			//Debug.Log(Speed);
 		}
 	}
