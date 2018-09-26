@@ -1196,6 +1196,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &220091575
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220091567}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f54322a3a87f7034f900710dc35f7276, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &225494499
 Prefab:
   m_ObjectHideFlags: 0
@@ -2714,6 +2732,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1103158867
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1103158859}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb546364cdf39534a84eea986b5125e6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1103569289
 GameObject:
   m_ObjectHideFlags: 0
@@ -4291,6 +4327,23 @@ Prefab:
       propertyPath: m_Size.x
       value: 0.008539395
       objectReference: {fileID: 0}
+    - target: {fileID: 114158014625933008, guid: e9db8c707ae161b4282f660f7baa1590,
+        type: 2}
+      propertyPath: Pmove
+      value: 
+      objectReference: {fileID: 21300000, guid: 14c691c2504f7ac469fa31d1bce8dc67,
+        type: 3}
+    - target: {fileID: 114158014625933008, guid: e9db8c707ae161b4282f660f7baa1590,
+        type: 2}
+      propertyPath: Psprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ab3ffc8fcc03e2f42bca5021d6a98a17,
+        type: 3}
+    - target: {fileID: 114158014625933008, guid: e9db8c707ae161b4282f660f7baa1590,
+        type: 2}
+      propertyPath: Animation
+      value: 
+      objectReference: {fileID: 1103158867}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9db8c707ae161b4282f660f7baa1590, type: 2}
   m_IsPrefabAsset: 0
