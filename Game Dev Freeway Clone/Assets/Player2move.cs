@@ -10,9 +10,12 @@ public class Player2move : MonoBehaviour {
 	public TextMeshProUGUI ScoreText;
 	public AudioSource Crash;
 	public AudioSource Win;
+	public bool Move;
 	
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
+		Move = true;
 		Score = 0;
 		ScoreText.text = "Score:" + Score.ToString();
 	}
@@ -20,20 +23,25 @@ public class Player2move : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKey(KeyCode.W))
+		if (Move == true)
 		{
-			transform.position += new Vector3(0, Speed);
+			if (Input.GetKey(KeyCode.W))
+            		{
+            			transform.position += new Vector3(0, Speed);
+            		}
+            		
+            		if (Input.GetKey(KeyCode.S))
+            		{
+            			transform.position += new Vector3(0, -Speed);
+            		}
+            		
+            		Vector3 pos = transform.position;
+            		if (transform.position.y < -4.5f)
+            			pos.y = -4.5f;
+            		transform.position = pos;
 		}
+
 		
-		if (Input.GetKey(KeyCode.S))
-		{
-			transform.position += new Vector3(0, -Speed);
-		}
-		
-		Vector3 pos = transform.position;
-		if (transform.position.y < -4.5f)
-			pos.y = -4.5f;
-		transform.position = pos;
 
 	}
 	

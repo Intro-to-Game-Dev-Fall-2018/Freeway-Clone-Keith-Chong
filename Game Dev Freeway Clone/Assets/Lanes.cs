@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Lanes : MonoBehaviour
 {
@@ -12,15 +13,17 @@ public class Lanes : MonoBehaviour
 	public float X;
 	public float Y;
 	public float Timer;
-	public GameObject Player1;
-	public GameObject Player2;
+	public Player1move Player1;
+	public Player2move Player2;
+	public TextMeshProUGUI EndText;
+	public TextMeshProUGUI RestartText;
 
 
 	// Use this for initialization
 	void Start ()
 	{
 
-		Timer = 5.0f;
+		Timer = 60.0f;
 		
 		for (int i = 0; i < 15; i++)
 		{
@@ -43,6 +46,29 @@ public class Lanes : MonoBehaviour
 		{
 		
 			Debug.Log("END");
+			Player1.Move = false;
+			Player2.Move = false;
+			RestartText.text = "Press R to restart!";
+			Player1.transform.position = new Vector3(5.75f, -4.5f,-3);
+			Player2.transform.position = new Vector3(-5.75f, -4.5f,-3);
+
+			if (Player1.Score > Player2.Score)
+			{
+				Debug.Log("Player 1 Win!");
+				EndText.text = "Player 1 Wins!";
+			}
+
+			else if (Player2.Score > Player1.Score)
+			{
+				Debug.Log("Player 2 Win!");
+				EndText.text = "Player 2 Wins!";
+			}
+			
+			else
+			{
+				Debug.Log("Draw!");
+				EndText.text = "Draw!";
+			}
 		}
 
 		if (Input.GetKey(KeyCode.R))
