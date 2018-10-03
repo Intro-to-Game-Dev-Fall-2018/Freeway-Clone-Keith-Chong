@@ -17,7 +17,9 @@ public class Player1move : MonoBehaviour {
 	public Sprite Psprite;
 	public Sprite Pmove;
 	public Animator Animation;
-	
+	public Rigidbody2D Rgbd;
+	public float Timer;
+	public float Pause;
 	
 	// Use this for initialization
 	void Start ()
@@ -25,6 +27,7 @@ public class Player1move : MonoBehaviour {
 		Move = true;
 		Score = 0;
 		ScoreText.text = "Score:" + Score.ToString();
+		Pause = 0.1f;
 	}
 	
 	// Update is called once per frame
@@ -34,29 +37,59 @@ public class Player1move : MonoBehaviour {
 		{
 			if (Input.GetKey(KeyCode.UpArrow))
 			{
-				transform.position += new Vector3(0, Speed);
+				//transform.position += new Vector3(0, Speed);
             	//Debug.Log(Move);
-					
-					GetComponent<SpriteRenderer>().sprite = Pmove;
+				Rgbd.AddForce(new Vector2(0,Speed), ForceMode2D.Force);
+				
+				Timer -= Time.deltaTime;
+				
+				if (Timer < 0 && GetComponent<SpriteRenderer>().sprite == Pmove)
                     			            
-				if (GetComponent<SpriteRenderer>().sprite == Pmove)
 				{
 					GetComponent<SpriteRenderer>().sprite = Psprite;
+					Timer = Pause;
 
 				}
-
-				if (GetComponent<SpriteRenderer>().sprite == Psprite)
+				
+				if (Timer < 0 && GetComponent<SpriteRenderer>().sprite == Psprite)
+                    			            
 				{
 					GetComponent<SpriteRenderer>().sprite = Pmove;
+					Timer = Pause;
+
 				}
+
+				//if (GetComponent<SpriteRenderer>().sprite == Psprite)
+				//{
+				//	GetComponent<SpriteRenderer>().sprite = Pmove;
+				//}
 
 			}
 			
             		
         if (Input.GetKey(KeyCode.DownArrow))
         	{
-        		transform.position += new Vector3(0, -Speed);
+        		//transform.position += new Vector3(0, -Speed);
      			//Debug.Log(Move);
+		        Rgbd.AddForce(new Vector2(0,-Speed), ForceMode2D.Force);
+		        
+		        Timer -= Time.deltaTime;
+				
+		        if (Timer < 0 && GetComponent<SpriteRenderer>().sprite == Pmove)
+                    			            
+		        {
+			        GetComponent<SpriteRenderer>().sprite = Psprite;
+			        Timer = Pause;
+
+		        }
+				
+		        if (Timer < 0 && GetComponent<SpriteRenderer>().sprite == Psprite)
+                    			            
+		        {
+			        GetComponent<SpriteRenderer>().sprite = Pmove;
+			        Timer = Pause;
+
+		        }
         	}
             		
             		Vector3 pos = transform.position;
@@ -75,13 +108,16 @@ public class Player1move : MonoBehaviour {
 			Score += 1;
 			ScoreText.text = "Score:" + Score.ToString();
 			Debug.Log(Score);
+			Rgbd.velocity = Vector2.zero;
 			Win.Play ();
 		}
 		
 		if (other.gameObject.CompareTag("Respawn"))
 		{
 			transform.position = new Vector3(5.75f, -4.5f,-3);
+			Rgbd.velocity = Vector2.zero;
 			Crash.Play ();
+			//Destroy(gameObject);
 			//Debug.Log(Speed);
 		}
 	}

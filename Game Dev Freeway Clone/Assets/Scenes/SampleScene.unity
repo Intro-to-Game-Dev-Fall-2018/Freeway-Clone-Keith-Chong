@@ -1001,12 +1001,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce764fafcf698b499ff8a5196741015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.05
+  Speed: 3
   Score: 0
   ScoreText: {fileID: 1698900640}
   Crash: {fileID: 220091573}
   Win: {fileID: 220091574}
   Move: 0
+  Rgbd: {fileID: 220091569}
+  Psprite: {fileID: 21300000, guid: ab3ffc8fcc03e2f42bca5021d6a98a17, type: 3}
+  Pmove: {fileID: 21300000, guid: 14c691c2504f7ac469fa31d1bce8dc67, type: 3}
+  Timer: 0.1
+  Pause: 0.1
+--- !u!50 &220091569 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 50696766876640796, guid: e9db8c707ae161b4282f660f7baa1590,
+    type: 2}
+  m_PrefabInternal: {fileID: 1332314275}
 --- !u!82 &220091573
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1206,7 +1216,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 220091567}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f54322a3a87f7034f900710dc35f7276, type: 2}
   m_CullingMode: 0
@@ -2539,6 +2549,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1903650125663898, guid: e9db8c707ae161b4282f660f7baa1590,
     type: 2}
   m_PrefabInternal: {fileID: 2008023324}
+--- !u!50 &1103158860 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 50696766876640796, guid: e9db8c707ae161b4282f660f7baa1590,
+    type: 2}
+  m_PrefabInternal: {fileID: 2008023324}
 --- !u!114 &1103158861 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114158014625933008, guid: e9db8c707ae161b4282f660f7baa1590,
@@ -2744,7 +2759,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1103158859}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: eb546364cdf39534a84eea986b5125e6, type: 2}
   m_CullingMode: 0
@@ -3069,6 +3084,11 @@ Prefab:
       propertyPath: m_Size.x
       value: 0.008405227
       objectReference: {fileID: 0}
+    - target: {fileID: 212278486369065864, guid: e9db8c707ae161b4282f660f7baa1590,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents:
     - {fileID: 114158014625933008, guid: e9db8c707ae161b4282f660f7baa1590, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: e9db8c707ae161b4282f660f7baa1590, type: 2}
@@ -4236,7 +4256,7 @@ Prefab:
     - target: {fileID: 114158014625933008, guid: e9db8c707ae161b4282f660f7baa1590,
         type: 2}
       propertyPath: Speed
-      value: 0.05
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114158014625933008, guid: e9db8c707ae161b4282f660f7baa1590,
         type: 2}
@@ -4349,6 +4369,16 @@ Prefab:
       propertyPath: Animation
       value: 
       objectReference: {fileID: 1103158867}
+    - target: {fileID: 114158014625933008, guid: e9db8c707ae161b4282f660f7baa1590,
+        type: 2}
+      propertyPath: Rgbd
+      value: 
+      objectReference: {fileID: 1103158860}
+    - target: {fileID: 114158014625933008, guid: e9db8c707ae161b4282f660f7baa1590,
+        type: 2}
+      propertyPath: Timer
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9db8c707ae161b4282f660f7baa1590, type: 2}
   m_IsPrefabAsset: 0
