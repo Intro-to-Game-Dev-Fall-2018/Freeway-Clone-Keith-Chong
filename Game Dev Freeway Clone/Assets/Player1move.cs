@@ -20,6 +20,8 @@ public class Player1move : MonoBehaviour {
 	public Rigidbody2D Rgbd;
 	public float Timer;
 	public float Pause;
+	public float Lives;
+	public TextMeshProUGUI LivesText;
 	
 	// Use this for initialization
 	void Start ()
@@ -27,6 +29,7 @@ public class Player1move : MonoBehaviour {
 		Move = true;
 		Score = 0;
 		ScoreText.text = "Score:" + Score.ToString();
+		LivesText.text = "Lives:" + Lives.ToString();
 		Pause = 0.1f;
 	}
 	
@@ -116,6 +119,8 @@ public class Player1move : MonoBehaviour {
 		{
 			transform.position = new Vector3(5.75f, -4.5f,-3);
 			Rgbd.velocity = Vector2.zero;
+			Lives -= 1;
+			LivesText.text = "Lives:" + Lives.ToString();
 			Crash.Play ();
 			//Destroy(gameObject);
 			//Debug.Log(Speed);

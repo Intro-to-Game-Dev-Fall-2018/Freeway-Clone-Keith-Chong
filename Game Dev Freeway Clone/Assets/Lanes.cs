@@ -18,7 +18,6 @@ public class Lanes : MonoBehaviour
 	public TextMeshProUGUI EndText;
 	public TextMeshProUGUI RestartText;
 
-
 	// Use this for initialization
 	void Start ()
 	{
@@ -42,6 +41,29 @@ public class Lanes : MonoBehaviour
 	void Update () {
 		
 		Timer -= Time.deltaTime;
+
+		if (Player1.Lives < 1)
+
+		{
+			EndText.text = "Player 2 Wins!";
+			Player1.Move = false;
+			Player2.Move = false;
+			RestartText.text = "Press R to restart!";
+			Player1.transform.position = new Vector3(5.75f, -4.5f,-3);
+			Player2.transform.position = new Vector3(-5.75f, -4.5f,-3);
+		}
+		
+		if (Player2.Lives < 1)
+
+		{
+			EndText.text = "Player 1 Wins!";
+			Player1.Move = false;
+			Player2.Move = false;
+			RestartText.text = "Press R to restart!";
+			Player1.transform.position = new Vector3(5.75f, -4.5f,-3);
+			Player2.transform.position = new Vector3(-5.75f, -4.5f,-3);
+		}
+		
 		if(Timer < 0)
 		{
 		
